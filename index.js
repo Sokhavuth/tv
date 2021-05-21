@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+var session = require('express-session')
+const MongoStore = require('connect-mongo')
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -5,13 +8,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 //////////////////////////////////////////////
-var session = require('express-session')
-const MongoStore = require('connect-mongo')
 require('dotenv').config()
-const mongoose = require('mongoose')
 const databaseAccess = process.env.DATABASE_URI
 process.env.TZ = "Asia/Phnom_Penh"
-//mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
 //////////////////////////////////////////////
 
 var indexRouter = require('./routes/index');
