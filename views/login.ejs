@@ -1,0 +1,15 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/login.css" rel="stylesheet"></link>
+  
+<section class='Login'>
+    <div class='title'>ចុះ​ឈ្មោះ​ចូល​ទំព័រ​គ្រប់គ្រង</div>
+
+    <form action='/users' method='post' >
+        <a>Email:</a><input type='email' name='email' required />
+        <a>ពាក្យ​សំងាត់ៈ</a><input type='password' name='password' required />
+    </form>
+
+    <footer>&copy; 2021 Khmer Web</footer>
+</section>
+    
+<%- include('partials/footer.ejs') %>

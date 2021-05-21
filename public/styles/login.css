@@ -1,0 +1,34 @@
+.Login{
+    width: 400px;
+    margin: 100px auto;
+    background: var(--background-dark);
+} 
+
+.Login .title{
+    text-align: center;
+    font: 18px/1.5 Moul, Oswald;
+    padding: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.Login form{
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: 20% auto; 
+    grid-gap: 5px;
+    align-items: center;
+}
+
+.Login form a{
+    text-align: right;
+}
+
+.Login form input{
+    padding: 5px;
+}
+
+.Login footer{
+    border-top: 1px solid lightgrey;
+    text-align: center;
+    padding: 10px;
+}

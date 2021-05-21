@@ -1,0 +1,34 @@
+/*static/styles/base.css*/
+:root{
+  --background: #64a44c;
+  --background-dark: #3b6b4f;
+  --background-light: acd79c;
+  --yellow: #ffd343;
+  --body-font: 14px/1.75 Vidaloka, OdorMeanChey;
+  --link: rgb(231, 230, 230);
+  --color: white;
+  --footer: #1d1c1f;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover{
+  opacity: .7;
+}
+.region{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body{
+  color: var(--color);
+  font: var(--body-font);
+  background: var(--background);
+}
