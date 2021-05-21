@@ -34,7 +34,7 @@ app.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: databaseAccess })
+  //store: MongoStore.create({ mongoUrl: databaseAccess })
 }))
 //////////////////////////////////////////////
 
