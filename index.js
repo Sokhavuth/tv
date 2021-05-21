@@ -9,9 +9,22 @@ var session = require('express-session')
 const MongoStore = require('connect-mongo')
 require('dotenv').config()
 
+async function setDbConnection() {
+  if (mongoose.connections[0].readyState) {
+    return
+  }
+  await mongoose.connect(process.env.DATABASE_URI, {
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useNewUrlParser: true
+  })
+}
+
 const mongoose = require('mongoose')
 const databaseAccess = process.env.DATABASE_URI
-mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
+//mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
+setDbConnection()
 process.env.TZ = "Asia/Phnom_Penh"
 //////////////////////////////////////////////
 
