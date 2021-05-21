@@ -8,33 +8,10 @@ var logger = require('morgan');
 var session = require('express-session')
 const MongoStore = require('connect-mongo')
 require('dotenv').config()
-
-async function setDbConnection() {
-  const mongoose = require('mongoose')
-  const databaseAccess = process.env.DATABASE_URI
-  process.env.TZ = "Asia/Phnom_Penh"
-
-  if (mongoose.connections[0].readyState) {
-    return
-  }
-
-  await mongoose.connect(databaseAccess, {
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useNewUrlParser: true
-  })
-
-  app.use(session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: databaseAccess })
-  }))
-}
-
-
-//mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
+const mongoose = require('mongoose')
+const databaseAccess = process.env.DATABASE_URI
+process.env.TZ = "Asia/Phnom_Penh"
+mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
 //////////////////////////////////////////////
 
 var indexRouter = require('./routes/index');
@@ -53,7 +30,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //////////////////////////////////////////////
-setDbConnection()
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: databaseAccess })
+}))
 //////////////////////////////////////////////
 
 app.use('/', indexRouter);
