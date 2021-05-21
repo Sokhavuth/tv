@@ -32,3 +32,8 @@
     text-align: center;
     padding: 10px;
 }
+
+.Login form input[type=submit]{
+    font: var(--body-font);
+    padding-top: 0;
+}

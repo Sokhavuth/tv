@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
-var session = require('express-session')
-const MongoStore = require('connect-mongo')
 
 
-async function setDbConnection(app) {
+async function setDbConnection() {
     require('dotenv').config()
     const databaseAccess = process.env.DATABASE_URI
     process.env.TZ = "Asia/Phnom_Penh"
@@ -18,13 +16,7 @@ async function setDbConnection(app) {
     useCreateIndex: true,
     useNewUrlParser: true
   })
-
-  app.use(session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: databaseAccess })
-  }))
+  
 }
 
 module.exports = setDbConnection
