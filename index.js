@@ -3,6 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
+const MongoStore = require('connect-mongo')
+require('dotenv').config()
+
+const mongoose = require('mongoose')
+const databaseAccess = process.env.DATABASE_URI
+mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
+process.env.TZ = "Asia/Phnom_Penh"
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,6 +26,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: databaseAccess })
+}))
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
