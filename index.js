@@ -11,7 +11,7 @@ var logger = require('morgan');
 require('dotenv').config()
 const databaseAccess = process.env.DATABASE_URI
 process.env.TZ = "Asia/Phnom_Penh"
-mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
+//mongoose.connect(databaseAccess, {useNewUrlParser: true, useUnifiedTopology: true})
 //////////////////////////////////////////////
 
 var indexRouter = require('./routes/index');
