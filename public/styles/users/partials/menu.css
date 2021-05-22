@@ -1,0 +1,11 @@
+.Menu{
+    font: 18px/1.75 Oswald, Koulen;
+    display: grid;
+    grid-template-columns: 55px auto;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.Menu img{
+    width: 100%;
+}

@@ -1,9 +1,10 @@
 var express = require('express')
 var router = express.Router()
+var settings = require('../settings')
 
 
 router.get('/', async function(req, res, next) {
-  const settings = require('../settings')
+  settings.dLogo = 'ទំព័រ​គ្រប់គ្រង'
   settings.message = ''
 
   if(req.session.user){
@@ -14,7 +15,6 @@ router.get('/', async function(req, res, next) {
 })
 
 router.post('/', async function(req, res, next){
-  const settings = require('../settings')
   const checkUser = require('../controllers/users/checkUser')
   const result = await checkUser(req)
   settings.message = result.message
@@ -32,6 +32,40 @@ router.get('/logout', async function(req, res, next) {
       console.log('Session was destroyed')
    })
   res.redirect('/')
+})
+
+router.get('/post', async function(req, res, next) {
+  settings.dLogo = 'ទំព័រ​ការផ្សាយ'
+
+  if(req.session.user){
+    res.render('users/post', settings)
+  }else{
+    res.redirect('/login')
+  }
+})
+
+router.get('/category', async function(req, res, next) {
+  settings.dLogo = 'ទំព័រ​ជំពូក'
+
+  const today = new Date()
+  const date = today.toLocaleDateString('fr-CA')
+  const time = today.toLocaleTimeString('it-IT')
+  settings.datetime = date + 'T' +  time
+
+  if(req.session.user){
+    res.render('users/category', settings)
+  }else{
+    res.redirect('/login')
+  }
+}) 
+
+router.post('/category', async function(req, res, next){
+  if(req.session.user){
+    console.log(req.body.label)
+    res.redirect('/users/category')
+  }else{
+    res.redirect('/login')
+  }
 })
 
 module.exports = router
