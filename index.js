@@ -5,14 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
 const MongoStore = require('connect-mongo')
+require('dotenv').config()
 
+process.env.TZ = "Asia/Phnom_Penh"
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-require('dotenv').config()
 app.use(session({
    secret: process.env.SECRET_KEY,
    resave: false,

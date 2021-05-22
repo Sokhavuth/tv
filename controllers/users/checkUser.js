@@ -13,17 +13,18 @@ async function checkUser(req){
       
     if(user){
       if(bcrypt.compareSync(req.body.password, user.password)){
-        result.success = true;
+        result.success = true
         req.session.user = user
+        result.message = ''
         return result
       }else{
-        result.message = 'The password is wrong.';
+        result.message = 'ពាក្យ​សំងាត់​មិន​ត្រឹមត្រូវ​ទេ'
         result.success = false;
         return result
       }
     }else{
-        result.message = 'The email is wrong.';
-        result.success = false;
+        result.message = 'Email មិន​ត្រឹមត្រូវទេ'
+        result.success = false
         return result
     }
 
