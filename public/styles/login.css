@@ -42,3 +42,17 @@
     font: var(--body-font);
     padding-top: 0;
 }
+
+@media only screen and (max-width: 600px){
+    .Login{
+        width: 100%;
+    } 
+
+    .Login form{
+        grid-template-columns: 100%; 
+    }
+
+    .Login form a{
+        text-align: left;
+    }
+}

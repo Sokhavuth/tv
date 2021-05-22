@@ -4,6 +4,7 @@ var router = express.Router()
 
 router.get('/', async function(req, res, next) {
   const settings = require('../settings')
+  settings.message = ''
   res.render('login', settings)
 })
 
