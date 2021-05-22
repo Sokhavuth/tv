@@ -5,7 +5,12 @@ var router = express.Router()
 router.get('/', async function(req, res, next) {
   const settings = require('../settings')
   settings.message = ''
-  res.render('login', settings)
+
+  if(req.session.user){
+    res.render('users/index', settings)
+  }else{
+    res.render('login', settings)
+  }
 })
 
 router.post('/', async function(req, res, next){
@@ -20,6 +25,13 @@ router.post('/', async function(req, res, next){
     res.render('login', settings)
   }
 
+})
+
+router.get('/logout', async function(req, res, next) {
+  req.session.destroy(function(err) {
+      console.log('Session was destroyed')
+   })
+  res.redirect('/')
 })
 
 module.exports = router

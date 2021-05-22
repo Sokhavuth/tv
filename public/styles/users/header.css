@@ -1,0 +1,34 @@
+.Header{
+    background: var(--background-dark);
+}
+
+.Header .header{
+    display: grid;
+    grid-template-columns: 25% auto 20%;
+    align-items: center;
+}
+
+.Header .header .title{
+    padding: 7px 0;
+    font: 30px/1.5 Limonf3, Oswald;
+}
+
+.Header .header form{
+    display: grid;
+    grid-template-columns: 20% auto 15%;
+}
+
+.Header .header form input,
+.Header .header form select{
+    padding: 2px 10px;
+}
+
+.Header .header form input[type=submit],
+.Header .header form select{
+    font: var(--body-font);
+}
+
+.Header .header .logout{
+    text-align: right;
+    font-size: 16px;
+}

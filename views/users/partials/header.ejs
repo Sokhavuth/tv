@@ -8,6 +8,25 @@
     <link href="/images/site_logo.png" rel="icon" ></link>
     <link href="/fonts/setup.css" rel="stylesheet"></link>
     <link href="/styles/global.css" rel="stylesheet"></link>
+    <link href="/styles/users/header.css" rel="stylesheet"></link>
   </head>
   <body>
     
+  <section class='Header'>
+    <header class='header region'>
+      <div class='title'>ទំព័រ​គ្រប់គ្រង</div>
+
+      <form action='/users/search' method='post'>
+        <select name='search-item'>
+          <option>ការផ្សាយ</option>
+          <option>ជំពូក</option>
+          <option>ទំព័រ​ស្តាទិក</option>
+          <option>អ្នក​ប្រើប្រាស់</option>
+        </select>
+        <input type='text' name='q' required />
+        <input type='submit' value='ស្វែង​រក' />
+      </form>
+
+      <div class='logout'><a href='/' >ទំព៏រដើម</a> | <a href='/users/logout'>ចេញ​ក្រៅ</a></div>
+    </header>
+  </section>
