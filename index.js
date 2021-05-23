@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
-const MongoStore = require('connect-mongo')
+//const MongoStore = require('connect-mongo')
 require('dotenv').config()
 
 process.env.TZ = "Asia/Phnom_Penh"
@@ -18,7 +18,7 @@ app.use(session({
    secret: process.env.SECRET_KEY,
    resave: false,
    saveUninitialized: false,
-   store: MongoStore.create({ mongoUrl: process.env.DATABASE_URI })
+   //store: MongoStore.create({ mongoUrl: process.env.DATABASE_URI })
 }))
 
 // view engine setup
