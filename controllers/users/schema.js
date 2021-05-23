@@ -17,7 +17,7 @@ module.exports = async () => {
 
   mongoose.models = {}
   const users = mongoose.model('users', usersSchema)
-
+  /*
   await users.findOne(function (err, user){
     if (err) return console.error(err)
     if(!user){
@@ -29,7 +29,7 @@ module.exports = async () => {
       })
     }
   })
-
+  */
   return users
   
 }

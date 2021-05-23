@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     const userChema = schemas()
 
 
-    id = (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
+    const id = (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
 /*
     user = new userChema({ 
         userid: id, 

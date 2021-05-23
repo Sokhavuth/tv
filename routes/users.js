@@ -52,6 +52,8 @@ router.get('/category', async function(req, res, next) {
   const time = today.toLocaleTimeString('it-IT')
   settings.datetime = date + 'T' +  time
 
+  settings.count = await require('../controllers/categories/count')()
+
   if(req.session.user){
     res.render('users/category', settings)
   }else{
@@ -61,8 +63,12 @@ router.get('/category', async function(req, res, next) {
 
 router.post('/category', async function(req, res, next){
   if(req.session.user){
-    console.log(req.body.label)
+    if(req.session.user.role === 'Admin'){
+      await require('../controllers/categories/create')(req)
+    }
+
     res.redirect('/users/category')
+
   }else{
     res.redirect('/login')
   }
