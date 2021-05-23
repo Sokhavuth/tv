@@ -2,14 +2,14 @@ var express = require('express')
 var router = express.Router()
 var settings = require('../settings')
 var session = require('express-session')
-//const MongoStore = require('connect-mongo')
+const MongoStore = require('connect-mongo')
 require('dotenv').config()
 
 router.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: false,
-  //store: MongoStore.create({ mongoUrl: process.env.DATABASE_URI })
+  store: MongoStore.create({ mongoUrl: process.env.DATABASE_URI })
 }))
   
 router.get('/', async function(req, res, next) {
