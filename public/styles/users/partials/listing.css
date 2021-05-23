@@ -1,0 +1,56 @@
+.List{
+    margin-top: 30px;
+}
+
+.List .info{
+    text-align: center;
+    background: var(--background-light);
+    padding: 10px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.List .item-wrapper{
+    display: grid;
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-gap: 10px;
+}
+
+.List .item{
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-gap: 10px;
+    align-items: center;
+    background: var(--background-light);
+}
+
+.List .item .thumb{
+    position: relative;
+    padding-top: 56.25%
+}
+
+.List .item .thumb img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.List .item .title-date, .List .item .title-date a{
+    color: black;
+}
+
+.List .item .edit-delete{
+    text-align: right;
+    padding-right: 10px;
+    visibility: hidden;
+}
+
+.List .item .edit-delete img{
+    width: 35px;
+}
+
+.List .item:hover .edit-delete{
+    visibility: visible;
+}

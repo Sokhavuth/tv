@@ -1,0 +1,30 @@
+<link href="/styles/users/partials/listing.css" rel="stylesheet"></link>
+
+<section class='List region'>
+    <div class='info'><%= message %></div>
+
+    <div class='item-wrapper'>
+        <% for(let v in items){ %>
+        <div class='item'>
+            <div class='thumb'>
+                <a href='/<%= route %>/<%= items[v].id %>'><img src='<%- items[v].thumb %>' /></a>
+            </div>
+
+            <div class='title-date'>
+                <a class='title' href='/<%= route %>/<%= items[v].id %>'><%= items[v].label %></a>
+                <div><%= items[v].date.toLocaleDateString() %></div>
+            </div>
+
+            <div class='edit-delete'>
+                <a href='/users/<%= route %>/edit/<%= items[v].id %>'>
+                    <img src='/images/edit.png' />
+                </a>
+                <a href='/users/<%= route %>/delete/<%= items[v].id %>'>
+                    <img src='/images/delete.png' />
+                </a>
+            </div>
+        </div> 
+        <% } %>
+    </div>
+ 
+</section>

@@ -11,7 +11,7 @@ router.use(session({
   saveUninitialized: false,
   store: MongoStore.create({ mongoUrl: process.env.DATABASE_URI })
 }))
-
+  
 router.get('/', async function(req, res, next) {
   settings.dLogo = 'ទំព័រ​គ្រប់គ្រង'
   settings.message = ''
@@ -54,16 +54,19 @@ router.get('/post', async function(req, res, next) {
 })
 
 router.get('/category', async function(req, res, next) {
-  settings.dLogo = 'ទំព័រ​ជំពូក'
-
-  const today = new Date()
-  const date = today.toLocaleDateString('fr-CA')
-  const time = today.toLocaleTimeString('it-IT')
-  settings.datetime = date + 'T' +  time
-
-  settings.count = await require('../controllers/categories/count')()
-
   if(req.session.user){
+    settings.dLogo = 'ទំព័រ​ជំពូក'
+
+    const today = new Date()
+    const date = today.toLocaleDateString('fr-CA')
+    const time = today.toLocaleTimeString('it-IT')
+    settings.datetime = date + 'T' +  time
+
+    const count = await require('../controllers/categories/count')()
+    settings.message = `ចំនួន​ជំពូក​សរុបៈ ${count}`
+    settings.route = 'category'
+    settings.items = await require('../controllers/categories/read')(settings.dItemLimit)
+
     res.render('users/category', settings)
   }else{
     res.redirect('/login')
