@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/users/category.css" rel="stylesheet"></link>
+  
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <div class='content'>
+        <form action='/users/category/edit/<%= category.id %>' method='post' >
+            <a>ឈ្មោះជំពូកៈ</a><input type='text' value='<%= category.label %>' name='label' required />
+            <a>តំណរភ្ជាប់រូបៈ</a><input type='text' value='<%= category.thumb %>' name='thumb' required />
+            <a>ពេល​បង្កើតៈ</a><input type='datetime-local' value='<%= datetime %>' name="datetime" required />
+            <a></a><input type='submit' value='បញ្ជូនទិន្នន័យ' />
+        
+            <a></a>
+
+            <div class='item'>
+                <div class='thumb'>
+                    <a href='/<%= route %>/<%= category.id %>'><img src='<%- category.thumb %>' /></a>
+                </div>
+    
+                <div class='title-date'>
+                    <a class='title' href='/<%= route %>/<%= category.id %>'><%= category.label %></a>
+                    <div><%= category.date.toLocaleDateString() %></div>
+                </div>
+    
+                <div class='edit-delete'>
+                    <a href='/users/<%= route %>/delete/<%= category.id %>'>
+                        <img src='/images/delete.png' />
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+    
+<%- include('partials/footer.ejs') %>

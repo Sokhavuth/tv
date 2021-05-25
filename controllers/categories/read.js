@@ -1,7 +1,7 @@
 const schema = require('./schema')
 
 
-async function getCategory(amount, id=false, page=0){
+async function getCategory(amount=10, id=false, page=0){
     const categorySchema = await schema()
 
     if(id){
