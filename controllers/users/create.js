@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
     user = new userChema({ 
         userid: id, 
         username: "Sokhavuth",
-        password: "Tin2021",
+        password: "xxxxxx",
         email: 'xxx',
         role: 'xxx',
         info: 'xxx',
