@@ -8,11 +8,18 @@ router.get('/', async function(req, res, next) {
     settings.dLogo = 'ទំព័រ​ការផ្សាយ'
   
     if(req.session.user){
-      res.render('users/post', settings)
+        const today = new Date()
+        const date = today.toLocaleDateString('fr-CA')
+        const time = today.toLocaleTimeString('it-IT')
+        settings.datetime = date + 'T' +  time
+
+        settings.categories = await require('../../controllers/categories/read')('all')
+        
+        res.render('users/post', settings)
     }else{
-      res.redirect('/users')
+        res.redirect('/users')
     }
-  })
+})
 
 
 

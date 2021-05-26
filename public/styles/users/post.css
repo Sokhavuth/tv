@@ -1,0 +1,44 @@
+.Main .content .ck-editor__editable{
+    min-height: 320px;
+    color: black;
+}
+
+.Main .content form .wrapper, 
+.Main .content .form{
+    margin-top:5px;
+    display: grid;
+    grid-template-columns: 20% auto 30% 15%;
+}
+
+.Main .content form input, 
+.Main .content form select,
+.Main .content .form input,
+.Main .content .form select
+{
+    font: var(--body-font);
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.Main .content table {
+    margin-top: 5px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Main .content table, td, th {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 5px;
+}
+
+.Main .content table, th {
+    background: #ddd;
+}
+
+.Main .content table .episode:hover{
+    cursor: pointer;
+    color: red;
+}
