@@ -92,6 +92,19 @@ router.get('/delete/:id', async function(req, res, next){
   }
 })
 
+router.post('/paginate', async function(req, res, next){
+  if(req.session.user){
+
+    const read = await require('../../controllers/categories/read')
+    const categories = await read(settings.dItemLimit, false, req.body.page)
+    console.log(categories)
+    res.json({items: categories})
+    
+  }else{
+    res.redirect('/users')
+  }
+})
+
 
 
 module.exports = router

@@ -1,4 +1,5 @@
 <link href="/styles/users/partials/listing.css" rel="stylesheet"></link>
+<script src='/scripts/users/paginate.js'></script>
 
 <section class='List region'>
     <div class='info'><%= message %></div>
@@ -25,6 +26,10 @@
             </div>
         </div> 
         <% } %>
+    </div>
+
+    <div class='paginate'>
+        <a onClick='paginate("<%= route %>")'><img src='/images/load-more.png' /></div></a>
     </div>
  
 </section>

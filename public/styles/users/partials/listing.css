@@ -54,3 +54,14 @@
 .List .item:hover .edit-delete{
     visibility: visible;
 }
+
+.List .paginate{
+    text-align: center;
+    background: var(--background-light);
+    margin-top: 10px;
+    padding: 10px 0 0px;
+}
+
+.List .paginate a:hover{
+    cursor: pointer;
+}

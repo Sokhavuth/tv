@@ -13,9 +13,9 @@ router.get('/', async function(req, res, next) {
     }else{
       res.render('login', settings)
     }
-  })
+})
   
-  router.post('/', async function(req, res, next){
+router.post('/', async function(req, res, next){
     const checkUser = require('../../controllers/users/checkUser')
     const result = await checkUser(req)
     settings.message = result.message
@@ -26,14 +26,14 @@ router.get('/', async function(req, res, next) {
       res.render('login', settings)
     }
   
-  })
+})
   
-  router.get('/logout', async function(req, res, next) {
+router.get('/logout', async function(req, res, next) {
     req.session.destroy(function(err) {
         console.log('Session was destroyed')
      })
     res.redirect('/')
-  })
+})
 
 
   
