@@ -18,10 +18,11 @@
                     <option><%= categories[v].label %></option>
                     <% } %>
                 </select>
-                <input type='text' name='thumb' requred placeholder="Thumb" />
+                <input type='text' name='thumb' requred placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
                 <input type='datetime-local' value='<%= datetime %>' name='datetime' required />
                 <input type='submit' value='ចុះ​ផ្សាយ' />
             </div>
+            <input name='entries' value='' type='hidden' />
         </form>
 
         <div class='form'>
@@ -39,7 +40,6 @@
                 <option>ចប់​ហើយ</option>
                 <option>មិន​ទាន់ចប់</option>
             </select>
-            <input name='entries' value='' type='hidden' />
             <input onclick='genJson()' type="button" value="បញ្ចូល​វីដេអូ" />
         </div>
 

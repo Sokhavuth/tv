@@ -21,6 +21,15 @@ router.get('/', async function(req, res, next) {
     }
 })
 
+router.post('/', async function(req, res, next) {
+    if(req.session.user){
+        await require('../../controllers/posts/create')(req)
+        res.redirect('/users/post')
+    }else{
+        res.redirect('/users')
+    }
+})
+
 
 
 module.exports = router

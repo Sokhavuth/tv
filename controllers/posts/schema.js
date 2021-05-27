@@ -10,6 +10,7 @@ async function setSchema(){
         id: {type: String, required: true},
         title: {type: String, required: true},
         content: {type: String, required: false},
+        video: {type: String, required: false},
         category: {type: String, required: false},
         date: {type: Date, required: true},
         author: {type: String, required: true},
