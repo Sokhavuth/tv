@@ -6,7 +6,7 @@ module.exports = async () => {
 
     const categorySchema = new mongoose.Schema({
         id: {type: String, required: true},
-        label: {type: String, required: true},
+        title: {type: String, required: true},
         thumb: {type: String, required: true},
         date: {type: Date, required: true}
     })

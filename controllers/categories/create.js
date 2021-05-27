@@ -8,7 +8,7 @@ module.exports = async (req) => {
 
     category = new categorySchema({ 
         id: id, 
-        label: req.body.label,
+        title: req.body.title,
         thumb: req.body.thumb,
         date: new Date(req.body.datetime)
     })

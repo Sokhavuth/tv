@@ -37,6 +37,20 @@
     left: 0;
 }
 
+.List .item .thumb .play-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: auto;
+}
+
+.List .item .thumb .play-icon:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
 .List .item .title-date, .List .item .title-date a{
     color: black;
 }

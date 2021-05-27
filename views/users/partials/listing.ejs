@@ -9,10 +9,13 @@
         <div class='item'>
             <div class='thumb'>
                 <a href='/<%= route %>/<%= items[v].id %>'><img src='<%- items[v].thumb %>' /></a>
+                <% if((items[v].video) && (items[v].video !== '')){ %>
+                <img class='play-icon' src='/images/play.png' />
+                <% } %>
             </div>
 
             <div class='title-date'>
-                <a class='title' href='/<%= route %>/<%= items[v].id %>'><%= items[v].label %></a>
+                <a class='title' href='/<%= route %>/<%= items[v].id %>'><%= items[v].title %></a>
                 <div><%= items[v].date.toLocaleDateString() %></div>
             </div>
 

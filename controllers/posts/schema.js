@@ -10,6 +10,7 @@ async function setSchema(){
         id: {type: String, required: true},
         title: {type: String, required: true},
         content: {type: String, required: false},
+        thumb: {type: String, required: true},
         video: {type: String, required: false},
         category: {type: String, required: false},
         date: {type: Date, required: true},
@@ -20,7 +21,6 @@ async function setSchema(){
     const post = mongoose.model('posts', postSchema)
 
     return post
-
 }
 
 

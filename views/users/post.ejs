@@ -15,7 +15,7 @@
             <div class='wrapper'>
                 <select name='category' >
                     <% for(let v in categories){ %>
-                    <option><%= categories[v].label %></option>
+                    <option><%= categories[v].title %></option>
                     <% } %>
                 </select>
                 <input type='text' name='thumb' requred placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
@@ -36,7 +36,6 @@
             </select>
             <input name='id' type='text' placeholder="អត្តសញ្ញាណវីដេអូ" required />
             <select name='ending'>
-                <option>​ចប់​ឬ​នៅ?</option>
                 <option>ចប់​ហើយ</option>
                 <option>មិន​ទាន់ចប់</option>
             </select>
@@ -48,5 +47,7 @@
         <script src="/scripts/ckeditor/config.js"></script>
     </div>
 </section>
+
+<%- include('partials/listing.ejs') %>
     
 <%- include('partials/footer.ejs') %>

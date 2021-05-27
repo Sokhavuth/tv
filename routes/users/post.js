@@ -14,6 +14,11 @@ router.get('/', async function(req, res, next) {
         settings.datetime = date + 'T' +  time
 
         settings.categories = await require('../../controllers/categories/read')('all')
+
+        const count = await require('../../controllers/posts/count')()
+        settings.message = `ចំនួន​ការផ្សាយ​សរុបៈ ${count}`
+        settings.items = await require('../../controllers/posts/read')(settings.dItemLimit)
+        settings.route = 'post'
         
         res.render('users/post', settings)
     }else{
