@@ -23,7 +23,7 @@ const genJson = () => {
     }
 
     if(success){
-        let json = $('input[name="entries"').val()
+        let json = $('input[name="entries"]').val()
         entries = {
             type: type,
             id: id,
@@ -31,7 +31,7 @@ const genJson = () => {
         }
         if(json === ''){
             json = JSON.stringify([entries])
-            $('input[name="entries"').val(json)
+            $('input[name="entries"]').val(json)
         }else{
             json = JSON.parse(json)
             json.push(entries)
