@@ -91,6 +91,22 @@ router.get('/delete/:id', async function(req, res, next){
     }
 })
 
+router.post('/paginate', async function(req, res, next){
+    if(req.session.user){
+        const read = await require('../../controllers/posts/read')
+
+        if(req.session.user.role === 'Admin'){
+            settings.items = await read(settings.dItemLimit, null, req.body.page)
+        }else{
+            settings.items = await read(settings.dItemLimit, null, req.body.page, req.session.user.userid)
+        }
+
+      res.json({items: settings.items})
+    }else{
+      res.redirect('/users')
+    }
+  })
+
 
 
 module.exports = router

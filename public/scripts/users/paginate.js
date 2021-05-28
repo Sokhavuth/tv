@@ -19,7 +19,7 @@ function appendItem(items, route){
         html += `</div>`
 
         html += `<div class='title-date'>`
-        html += `<a class='title' href='/${ route }/${ items[v].id }'>${ items[v].label }</a>`
+        html += `<a class='title' href='/${ route }/${ items[v].id }'>${ items[v].title }</a>`
         html += `<div>${ (new Date(items[v].date)).toLocaleDateString() }</div>`
         html += `</div>`
 
