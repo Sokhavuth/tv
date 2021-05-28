@@ -17,7 +17,14 @@ router.get('/', async function(req, res, next) {
 
         const count = await require('../../controllers/posts/count')()
         settings.message = `ចំនួន​ការផ្សាយ​សរុបៈ ${count}`
-        settings.items = await require('../../controllers/posts/read')(settings.dItemLimit)
+        const read = await require('../../controllers/posts/read')
+
+        if(req.session.user.role === 'Admin'){
+            settings.items = await read(settings.dItemLimit)
+        }else{
+            settings.items = await read(settings.dItemLimit, null, null, req.session.user.userid)
+        }
+        
         settings.route = 'post'
         
         res.render('users/post', settings)
@@ -37,7 +44,7 @@ router.post('/', async function(req, res, next) {
 
 router.get('/edit/:id', async function(req, res, next) {
     if(req.session.user){
-        settings.dLogo = 'ទំព័រ​កែប្រែ​ជំពូក'
+        settings.dLogo = 'ទំព័រ​កែប្រែ​ការផ្សាយ'
         const post = await require('../../controllers/posts/read')(false, req.params.id)
 
         if((req.session.user.role === 'Admin') || (req.session.user.userid === post.author)){
@@ -64,6 +71,21 @@ router.post('/edit/:id', async function(req, res, next){
         await require('../../controllers/posts/update')(req)
         
         res.redirect('/users/post/edit/' + req.params.id)
+    }else{
+        res.redirect('/users')
+    }
+})
+
+router.get('/delete/:id', async function(req, res, next){
+    if(req.session.user){
+        const post = await require('../../controllers/posts/read')(false, req.params.id)
+
+        if((req.session.user.role === 'Admin') || (req.session.user.userid === post.author)){
+            await require('../../controllers/posts/delete')(req)
+        }
+  
+        res.redirect('/users/post')
+  
     }else{
         res.redirect('/users')
     }
