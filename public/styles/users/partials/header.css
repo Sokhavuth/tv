@@ -40,11 +40,6 @@
     min-height: 400px;
 }
 
-.Main .content{
-    border-left: 2px solid  var(--background-light);
-    padding-left: 20px;
-}
-
 .Main .sidebar{
     padding-right: 20px;
 }

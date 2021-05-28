@@ -8,7 +8,7 @@ async function deletePost(req){
     const post = await postSchema.findOne({id: req.params.id})
     await postSchema.deleteOne({id: req.params.id})
     return post
-  }
+}
 
   
 
