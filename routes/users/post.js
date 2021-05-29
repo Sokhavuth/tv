@@ -101,11 +101,11 @@ router.post('/paginate', async function(req, res, next){
             settings.items = await read(settings.dItemLimit, null, req.body.page, req.session.user.userid)
         }
 
-      res.json({items: settings.items})
+        res.json({items: settings.items})
     }else{
-      res.redirect('/users')
+        res.redirect('/users')
     }
-  })
+})
 
 
 

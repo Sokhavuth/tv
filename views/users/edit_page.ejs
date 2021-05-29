@@ -1,0 +1,109 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/users/post.css" rel="stylesheet"></link>
+<script src="/scripts/ckeditor/ckeditor.js"></script>
+<script src="/scripts/users/post.js"></script>
+
+<style>
+    .Main .content form .wrapper{
+        margin-top:5px;
+        display: grid;
+        grid-template-columns: auto 30% 15%;
+    }
+</style>
+  
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <div class='content'>
+        <form action='/users/page/edit/<%= page.id %>' method='post'>
+            <input type='text' name='title' value='<%= page.title %>' required />
+            <textarea name="content" id="editor" ><%- page.content %></textarea>
+            <div class='wrapper'>
+                <input type='text' name='thumb' requred value="<%= page.thumb %>" />
+                <input type='datetime-local' value='<%= datetime %>' name='datetime' required />
+                <input type='submit' value='ចុះ​ផ្សាយ' />
+            </div>
+            <input name='entries' value='<%= page.video %>' type='hidden' />
+        </form>
+
+        <div class='form'>
+            <select name='type'>
+                <option>YouTube</option>
+                <option>YouTubePlaylist</option>
+                <option>Facebook</option>
+                <option>OK</option>
+                <option>Dailymotion</option>
+                <option>Vimeo</option>
+            </select>
+            <input name='id' type='text' placeholder="អត្តសញ្ញាណវីដេអូ" required />
+            <select name='ending'>
+                <option>ចប់​ហើយ</option>
+                <option>មិន​ទាន់ចប់</option>
+            </select>
+            <input onclick='genJson()' type="button" value="បញ្ចូល​វីដេអូ" />
+        </div>
+
+        <table class='viddata'></table>
+        
+        <div class='item'>
+            <div class='thumb'>
+                <a href='/<%= route %>/<%= page.id %>'><img src='<%- page.thumb %>' /></a>
+            </div>
+
+            <div class='title-date'>
+                <a class='title' href='/<%= route %>/<%= page.id %>'><%= page.title %></a>
+                <div><%= page.author %></div>
+            </div>
+
+            <div class='edit-delete'>
+                <a href='/users/<%= route %>/delete/<%= page.id %>'>
+                    <img src='/images/delete.png' />
+                </a>
+            </div>
+        </div>
+
+        <% if(page.video !== ''){ %>
+            <script>
+                var entries = JSON.parse('<%- page.video %>')
+            </script>
+        <% }else{ %>
+            <script>
+               var entries = []
+            </script>
+        <% } %>
+
+        <script>
+        if(entries.length > 0){
+
+            let html = ``
+            for(let v in entries){
+                episode += 1
+                html += `<tr>`
+                html += `<td title="Delete" onClick="deleteRow(event)" class="episode">${episode}</td>`
+                html += `<td class="td${episode}">${entries[v].type}</td>`
+                html += `<td class="td${episode}">${entries[v].id}</td>`
+                html += `<td class="td${episode}">${entries[v].ending}</td>`
+                html += `</tr>`
+            }
+
+            if($('.viddata').html() === ''){
+                $('.viddata').append('<tr>')
+                $('.viddata').append('<th>ភាគ/លុប</th>')
+                $('.viddata').append('<th>ប្រភេទ​</th>')
+                $('.viddata').append('<th>អត្តសញ្ញាណ​</th>')
+                $('.viddata').append('<th>ចប់ឬ​នៅ?</th>')
+                $('.viddata').append('</tr>')
+            }
+
+            $('.viddata').append(`${html}`)
+
+        }
+        </script>
+        
+        <script src="/scripts/ckeditor/config.js"></script>
+    </div>
+</section>
+    
+<%- include('partials/footer.ejs') %>

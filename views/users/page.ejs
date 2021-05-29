@@ -1,0 +1,56 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/users/post.css" rel="stylesheet"></link>
+<script src="/scripts/ckeditor/ckeditor.js"></script>
+<script src="/scripts/users/post.js"></script>
+
+<style>
+.Main .content form .wrapper{
+    margin-top:5px;
+    display: grid;
+    grid-template-columns: auto 30% 15%;
+}
+</style>
+  
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <div class='content'>
+        <form action='/users/page' method='post'>
+            <input type='text' name='title' placeholder='ចំណងជើង' required />
+            <textarea name="content" id="editor" ></textarea>
+            <div class='wrapper'>
+                <input type='text' name='thumb' requred placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
+                <input type='datetime-local' value='<%= datetime %>' name='datetime' required />
+                <input type='submit' value='ចុះ​ផ្សាយ' />
+            </div>
+            <input name='entries' value='' type='hidden' />
+        </form>
+
+        <div class='form'>
+            <select name='type'>
+                <option>YouTube</option>
+                <option>YouTubePlaylist</option>
+                <option>Facebook</option>
+                <option>OK</option>
+                <option>Dailymotion</option>
+                <option>Vimeo</option>
+            </select>
+            <input name='id' type='text' placeholder="អត្តសញ្ញាណវីដេអូ" required />
+            <select name='ending'>
+                <option>ចប់​ហើយ</option>
+                <option>មិន​ទាន់ចប់</option>
+            </select>
+            <input onclick='genJson()' type="button" value="បញ្ចូល​វីដេអូ" />
+        </div>
+
+        <table class='viddata'></table>
+    
+        <script src="/scripts/ckeditor/config.js"></script>
+    </div>
+</section>
+
+<%- include('partials/listing.ejs') %>
+    
+<%- include('partials/footer.ejs') %>

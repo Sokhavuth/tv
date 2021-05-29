@@ -22,6 +22,9 @@ router.use('/post', postRoute)
 const categoryRoute = require('./users/category')
 router.use('/category', categoryRoute) 
 
+const pageRoute = require('./users/page')
+router.use('/page', pageRoute) 
+
 
 
 module.exports = router

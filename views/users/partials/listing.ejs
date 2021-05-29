@@ -16,7 +16,11 @@
 
             <div class='title-date'>
                 <a class='title' href='/<%= route %>/<%= items[v].id %>'><%= items[v].title %></a>
+                <% if(route === 'page'){ %>
+                <div><%= items[v].author %></div>
+                <% } else { %>
                 <div><%= items[v].date.toLocaleDateString() %></div>
+                <% } %>
             </div>
 
             <div class='edit-delete'>
