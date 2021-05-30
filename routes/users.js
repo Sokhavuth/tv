@@ -25,6 +25,9 @@ router.use('/category', categoryRoute)
 const pageRoute = require('./users/page')
 router.use('/page', pageRoute) 
 
+const bookRoute = require('./users/book')
+router.use('/book', bookRoute) 
+
 
 
 module.exports = router

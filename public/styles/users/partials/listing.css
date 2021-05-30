@@ -53,6 +53,9 @@
 
 .List .item .title-date, .List .item .title-date a{
     color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .List .item .edit-delete{

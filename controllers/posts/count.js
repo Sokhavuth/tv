@@ -2,7 +2,7 @@ const schema = require('./schema')
 
 
 
-async function countCategory(){
+async function countPost(){
     const postSchema = await schema()
 
     return await postSchema.countDocuments({})
@@ -10,4 +10,4 @@ async function countCategory(){
 
 
 
-module.exports = countCategory
+module.exports = countPost
