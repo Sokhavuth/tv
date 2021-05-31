@@ -1,0 +1,79 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/users/post.css" rel="stylesheet"></link>
+<script src="/scripts/ckeditor/ckeditor.js"></script>
+<script src="/scripts/users/post.js"></script>
+  
+<style>
+.Main .content form .wrapper{
+    margin-top:5px;
+    display: grid;
+    grid-template-columns: auto 30% 15%;
+}
+</style>
+
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <div class='content'>
+        <form action='/users/user' method='post'>
+            <input type='text' name='username' placeholder='ឈ្មោះ​អ្នក​ប្រើប្រាស់' required />
+            <textarea name="info" id="editor" ></textarea>
+            <div class='wrapper'>
+                <input type='password' name='password' required />
+                <input type='email' name='email' required placeholder="email" />
+                <input type='text' name='role' required placeholder="មុខ​នាទី" />
+                <input type='text' name='thumb' placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
+                <input type='datetime-local' value='<%= datetime %>' name='datetime' required />
+                <input type='submit' value='បង្កើត​អ្នក​ប្រើប្រាស់' />
+            </div>
+            <input name='entries' value='' type='hidden' />
+        </form>
+
+        <div class='form'>
+            <select name='type'>
+                <option>YouTube</option>
+                <option>YouTubePlaylist</option>
+                <option>Facebook</option>
+                <option>OK</option>
+                <option>Dailymotion</option>
+                <option>Vimeo</option>
+            </select>
+            <input name='id' type='text' placeholder="អត្តសញ្ញាណវីដេអូ" required />
+            <select name='ending'>
+                <option>ចប់​ហើយ</option>
+                <option>មិន​ទាន់ចប់</option>
+            </select>
+            <input onclick='genJson()' type="button" value="បញ្ចូល​វីដេអូ" />
+        </div>
+
+        <table class='viddata'></table>
+    
+        <script src="/scripts/ckeditor/config.js"></script>
+    </div>
+</section>
+
+<%- include('partials/listing.ejs') %>
+
+<style>
+    .List .item{
+        display: grid;
+        grid-template-columns: 12% auto 20%;
+        grid-gap: 10px;
+        align-items: center;
+        background: var(--background-light);
+        padding: 5px 0 5px 10px;
+    }
+    
+    .List .item .thumb{
+        position: relative;
+        padding-top: 100%
+    }
+
+    .List .item .thumb img{
+        border-radius: 50%;
+    }
+</style>
+    
+<%- include('partials/footer.ejs') %>

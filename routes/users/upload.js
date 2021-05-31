@@ -19,25 +19,31 @@ router.get('/', async function(req, res){
 })
 
 router.post('/', async function(req, res) {
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send('No files were uploaded.')
-  }
+    if(req.session.user){
 
-  const uploadedFile = req.files.uploadFile
-  const fileName = req.files.uploadFile.name
-  const id = (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
-  const moveTo = `public/upload/${id+'_'+fileName}`
-  const fileUrl = `/upload/${id+'_'+fileName}`
+        if (!req.files || Object.keys(req.files).length === 0) {
+            return res.status(400).send('No files were uploaded.')
+        }
 
-  uploadedFile.mv(moveTo, function(err) {
-    if (err)
-      return console.log(err)
+        const uploadedFile = req.files.uploadFile
+        const fileName = req.files.uploadFile.name
+        const id = (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
+        const moveTo = `public/upload/${id+'_'+fileName}`
+        const fileUrl = `/upload/${id+'_'+fileName}`
 
-    settings.dLogo = 'ទំព័រ​ Upload'
-    settings.message = fileUrl
+        uploadedFile.mv(moveTo, function(err) {
+            if (err)
+                return console.log(err)
 
-    res.render('users/upload', settings)
-  })
+            settings.dLogo = 'ទំព័រ​ Upload'
+            settings.message = fileUrl
+
+            res.render('users/upload', settings)
+        })
+
+    }else{
+        res.redirect('/users')
+    }
 })
 
 

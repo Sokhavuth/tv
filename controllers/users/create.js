@@ -1,23 +1,26 @@
 const schema = require('./schema')
+const bcrypt = require('bcryptjs')
 
 
 module.exports = async (req, res) => {
-    const userChema = schemas()
+    const userSchema = await schema()
 
 
     const id = (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
-/*
-    user = new userChema({ 
+    const hash = bcrypt.hashSync(req.body.password, 12)
+
+    user = new userSchema({ 
         userid: id, 
-        username: "Sokhavuth",
-        password: "xxxxxx",
-        email: 'xxx',
-        role: 'xxx',
-        info: 'xxx',
+        username: req.body.username,
+        password: hash,
+        email: req.body.email,
+        role: req.body.role,
+        thumb: req.body.thumb,
+        info: req.body.info,
+        video: req.body.entries,
         date: new Date()
     })
-*/
-    //const _user = await user.save()
 
-  //res.json({ user: _user })
+    return await user.save()
+
 }

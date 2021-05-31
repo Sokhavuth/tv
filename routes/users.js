@@ -31,6 +31,9 @@ router.use('/book', bookRoute)
 const uploadRoute = require('./users/upload')
 router.use('/upload', uploadRoute) 
 
+const userRoute = require('./users/user')
+router.use('/user', userRoute) 
+
 
 
 module.exports = router

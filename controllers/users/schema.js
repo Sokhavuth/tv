@@ -11,7 +11,9 @@ module.exports = async () => {
     password: {type: String, required: true},
     email: {type: String, required: true},
     role: {type: String, required: true},
+    thumb: {type: String, reqired: false},
     info: {type: String, required: false},
+    video: {type: String, required: false},
     date: {type: Date, required: true}
   })
 
