@@ -28,6 +28,9 @@ router.use('/page', pageRoute)
 const bookRoute = require('./users/book')
 router.use('/book', bookRoute) 
 
+const uploadRoute = require('./users/upload')
+router.use('/upload', uploadRoute) 
+
 
 
 module.exports = router

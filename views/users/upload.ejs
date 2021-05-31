@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/users/category.css" rel="stylesheet"></link>
+  
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <style>
+        .Main .content form input{
+            padding: 3px 0;
+        }
+        .Main .content form input[type=text]{
+            text-align: center;
+            font: var(--body-fornt);
+        }
+    </style>
+
+    <div class='content'>
+        <form action='/users/upload' method='post' enctype="multipart/form-data" >
+            <a></a><input type='file' name='uploadFile' required />
+            <a></a><input type='text' value='<%= message %>' placeholder='តំណរភ្ជាប់ឯ​កសារ​នៅ​លើ Server' />
+            <a></a><input type='submit' value='បញ្ជូន​ទិន្នន័យ' />
+        </form>
+    </div>
+</section>
+
+
+    
+<%- include('partials/footer.ejs') %>
