@@ -1,0 +1,87 @@
+.Screen{
+    margin: 0 0 20px;
+    background: var(--background-dark);
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 15px;
+    padding: 15px;
+}
+
+.Screen div{
+    position:relative;
+    padding-top:56.25%;
+}
+
+.Screen div iframe{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-width:0;
+}
+
+.Screen div:nth-child(1){
+    grid-column: 1 / span 3;
+}
+
+.Screen  div:nth-child(2){
+    grid-column: 4 / span 3;
+}
+
+.Screen  div:nth-child(3){
+    grid-column: 1 / span 2;
+}
+
+.Screen  div:nth-child(4){
+    grid-column: 3 / span 2;
+}
+
+.Screen  div:nth-child(5){
+    grid-column: 5 / span 2;
+}
+
+.Navigation {
+    background: var(--background-dark);
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0 5px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.Navigation img{
+    height: 35px;
+    padding: 0 1px;
+}
+
+.Navigation img:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
+@media only screen and (max-width: 600px){
+    .Screen{
+        grid-template-columns: 100%;
+    }
+    
+    .Screen div:nth-child(1){
+        grid-column: 1 / span 1;
+    }
+    
+    .Screen  div:nth-child(2){
+        grid-column: 1 / span 1;
+    }
+    
+    .Screen  div:nth-child(3){
+        grid-column: 1 / span 1;
+    }
+    
+    .Screen  div:nth-child(4){
+        grid-column: 1 / span 1;
+    }
+    
+    .Screen  div:nth-child(5){
+        grid-column: 1 / span 1;
+    }
+    
+}

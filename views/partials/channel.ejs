@@ -1,0 +1,26 @@
+<link href='/styles/channel.css' rel='stylesheet' />
+<div class='Channel region'>
+
+<div class="Navigation">
+    <img onClick="channel.getVidContent(channel.yt_prevPageToken)" src="/images/green_left.png" />
+    <img onClick="channel.getVidContent()" src='/images/green_home.png' />
+    <img onClick="channel.getVidContent(channel.yt_nextPageToken)" src="/images/green_right.png" />
+</div>
+
+<div class='Screen'></div>
+
+<script src='/scripts/channel.js'></script>
+
+<script>
+const script = document.createElement("script")
+    script.src = "https://apis.google.com/js/client.js"
+    script.onload = () => {
+      window.gapi.load('client', () => {
+        channel.getVidContent()
+      })
+    }
+
+    document.body.appendChild(script)
+</script>
+
+</div>
