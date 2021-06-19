@@ -1,0 +1,23 @@
+<link href='/styles/index_post.css' rel='stylesheet' />
+
+<div class='Index_post region'>
+    <div class='wrapper'>
+        <% for(let v in posts){ %>
+        <div class='post'>
+            <a class='thumb' href='/post/<%= posts[v].id %>'>
+                <img  src='<%= posts[v].thumb %>'  />
+            </a>
+
+            <% if(posts[v].video !== ''){ %>
+                <a  href='/post/<%= posts[v].id %>'>
+                    <img class='play-icon' src='/images/play.png' />
+                </a>
+            <% } %>
+
+            <a class='title' href='/post/<%= posts[v].id %>'><%= posts[v].title %></a>
+            
+            <div class='date'><%= posts[v].date.toLocaleDateString() %></div>
+        </div>
+        <% } %>
+    </div>
+</div>
