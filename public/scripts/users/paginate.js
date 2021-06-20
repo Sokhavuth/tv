@@ -14,8 +14,22 @@ function appendItem(items, route){
 
     for(let v in items){
         html += `<div class='item'>`
+        
         html += `<div class='thumb'>`
-        html += `<a href='/${ route }/${ items[v].id }'><img src='${ items[v].thumb }' /></a>`
+        if(route === 'user'){
+            html += `<a href='/${ route }/${ items[v].userid }'>`
+        }else{
+            html += `<a href='/${ route }/${ items[v].id }'>`
+        }
+        if(items[v].thumb){
+            html += `<img src='${ items[v].thumb }' />`
+        }else{
+            html += `<img src='/images/userthumb.png' />`
+        }
+        html += `</a>`
+        if((items[v].video) && (items[v].video !== '')){
+            html += `<img class='play-icon' src='/images/play.png' />`
+        }
         html += `</div>`
 
         html += `<div class='title-date'>`
