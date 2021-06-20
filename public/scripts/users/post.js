@@ -60,6 +60,15 @@ const genJson = () => {
 
 function deleteRow(e) {
     e.target.parentElement.remove()
+    
+    let index = parseInt(e.target.innerHTML)
+    index = index - 1
+    let json = $('input[name="entries"]').val()
+    json = JSON.parse(json)
+    json.splice(index, 1);
+    json = JSON.stringify(json)
+    $('input[name="entries"').val(json)
+
     episode -= 1
     for(let v=0; v<episode; v++){
         $('.episode').eq(v).html(v+1)

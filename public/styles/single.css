@@ -37,7 +37,8 @@
     margin-top: 20px;
 }
 
-.Single .wrapper .content .video iframe{
+.Single .wrapper .content .video iframe,
+.Single .wrapper .content .video .fb-video{
     position: absolute;
     top: 0;
     left: 0;
