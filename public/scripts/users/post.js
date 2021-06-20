@@ -67,6 +67,9 @@ function deleteRow(e) {
     json = JSON.parse(json)
     json.splice(index, 1);
     json = JSON.stringify(json)
+    if(json.length === 0){
+        json = ''
+    }
     $('input[name="entries"').val(json)
 
     episode -= 1

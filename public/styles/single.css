@@ -50,6 +50,33 @@
     margin-top: 20px;
 }
 
+.Single .wrapper .content .playlist{
+    background: var(--menu);
+    border-top: 1px solid lightgrey;
+}
+
+.Single .wrapper .content .episode{
+    display: grid;
+    grid-template-columns: 140px auto;
+    grid-gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.Single .wrapper .content .episode:last-child{
+    
+}
+
+.Single .wrapper .content .episode img{
+    width: 100%;
+}
+
+.Single .wrapper .content .episode .label{
+    font: 20px/1.5 StardosStencil, Limonf3;
+    text-align: right;
+}
+
 @media only screen and (max-width: 600px){
     .Single .wrapper{
         grid-template-columns: 100%;

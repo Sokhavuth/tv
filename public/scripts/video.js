@@ -10,6 +10,19 @@ function setVideo(video){
         html += `<div class="fb-video" data-href="https://www.facebook.com/watch/?v=${video[0].id}" data-width="auto" data-show-captions="true"></div>`
         html += `</div>`
     }
+
+    if(video.length > 1){
+        html += `<div class="playlist">`
+
+        for(let v in video){
+            html += `<div class="episode">`
+            html += `<img src="/images/playlist.jpg" />`
+            html += `<div class="label">ភាគ​ទី ${++v}</div>`
+            html += `</div>`
+        }
+
+        html += `</div>`
+    }
     
     return html
 }

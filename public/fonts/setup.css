@@ -51,3 +51,11 @@
   font-family: Lobster;
   src: url(Lobster.ttf);
 }
+@font-face {
+  font-family: BlackOpsOne;
+  src: url(BlackOpsOne.ttf);
+}
+@font-face {
+  font-family: StardosStencil;
+  src: url(StardosStencil.ttf);
+}
