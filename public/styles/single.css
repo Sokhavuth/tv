@@ -1,0 +1,65 @@
+.Single{
+    margin-top: 20px;
+}
+
+.Single .wrapper{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 20px;
+}
+
+.Single .wrapper .content{
+    background: var(--background-dark);
+    padding: 20px;
+}
+
+.Single .wrapper .content .title-outer{
+    display: grid;
+    grid-template-columns: auto 10%;
+    align-items: center;
+}
+
+.Single .wrapper .content .title-outer .title{
+    font: 22px/1.5 Oswald, Bayon;
+}
+
+.Single .wrapper .content .title-outer .edit{
+    text-align: right;
+}
+
+.Single .wrapper .content .title-outer .edit img{
+    width: 30px;
+}
+
+.Single .wrapper .content .video{
+    position: relative;
+    padding-top: 56.25%;
+    margin-top: 20px;
+}
+
+.Single .wrapper .content .video iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Single .wrapper .content .text{
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px){
+    .Single .wrapper{
+        grid-template-columns: 100%;
+    }
+
+    .Single .wrapper .content .title-outer{
+        grid-template-columns: 100%;
+    }
+
+    .Single .wrapper .content .title-outer .edit{
+        text-align: left;
+        padding-top: 10px;
+    }
+}

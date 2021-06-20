@@ -12,7 +12,7 @@ async function createPost(req){
     const video = req.body.entries
     const category = req.body.category
     const date = new Date(req.body.datetime)
-    const author = req.session.user.userid
+    const author = req.session.user.username
 
     const post = new postSchema({id: id, title: title, content: content, thumb: thumb,
         video: video, category: category, date: date, author: author})

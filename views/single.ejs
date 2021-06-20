@@ -1,0 +1,57 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/single.css" rel="stylesheet"></link>
+<script src='/scripts/single.js'></script>
+  
+<section class='Single'>
+    <div class='wrapper region'>
+        <div class='content'>
+            <div class='header'>
+                <div class='title-outer'>
+                    <div class='title'><%- post.title %></div>
+                    <div class='edit'>
+                        <% if(user){ %>
+                        <a href='/users/post/edit/<%- post.id %>'><img src='/images/edit.png' /></a>
+                        <a href='/users/post/delete/<%- post.id %>'><img src='/images/delete.png' /></a>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class='author'>ចុះ​ផ្សាយ​ដោយៈ <%- post.author %></div>
+                <div class='date'>នៅ​ពេលៈ <%- post.date.toLocaleDateString() %></div>
+            </div>
+
+            <% if(post.video !== ''){ %>
+                <script>
+                    let video = JSON.parse('<%- post.video %>')
+                    $('.header').append(setVideo(video))
+                </script>
+            <% } %>
+
+            <div class='text'>
+                <%- post.content %>
+            </div>
+
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                this.page.url = "https://khmerweb-tv.herokuapp.com/post/<%- post.id %>";  
+                this.page.identifier = "<%- post.id %>"; 
+                };
+            
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://khmerweb.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+        <div class='sidebar'>
+            sidebar
+        </div>
+    </div>
+</section>
+    
+<%- include('partials/footer.ejs') %>
