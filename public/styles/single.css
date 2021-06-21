@@ -53,6 +53,8 @@
 .Single .wrapper .content .playlist{
     background: var(--menu);
     border-top: 1px solid lightgrey;
+    max-height: 345px;
+    overflow: auto;
 }
 
 .Single .wrapper .content .episode{
@@ -60,8 +62,17 @@
     grid-template-columns: 140px auto;
     grid-gap: 10px;
     align-items: center;
-    padding: 10px;
+    padding: 3px 10px 3px 0;
     border-bottom: 1px solid lightgrey;
+}
+
+.Single .wrapper .content .episode:hover{
+    cursor: pointer;
+    opacity: .5;
+}
+
+.Single .wrapper .content .active{
+    background: #0a1b11;
 }
 
 .Single .wrapper .content .episode:last-child{
@@ -76,6 +87,7 @@
     font: 20px/1.5 StardosStencil, Limonf3;
     text-align: right;
 }
+
 
 @media only screen and (max-width: 600px){
     .Single .wrapper{

@@ -11,17 +11,19 @@
                 <% if(route==='user'){ %>
                 <a href='/<%= route %>/<%= items[v].userid %>'>
                 <% }else{ %>
-                    <a href='/<%= route %>/<%= items[v].id %>'>
+                <a href='/<%= route %>/<%= items[v].id %>'>
                 <% } %>
                     <% if(items[v].thumb){ %>
                     <img src='<%- items[v].thumb %>' />
                     <% }else{ %>
                     <img src='/images/userthumb.png' />
                     <% } %>
+
+                    <% if((items[v].video) && (items[v].video !== '')){ %>
+                        <img class='play-icon' src='/images/play.png' />
+                    <% } %>
                 </a>
-                <% if((items[v].video) && (items[v].video !== '')){ %>
-                <img class='play-icon' src='/images/play.png' />
-                <% } %>
+                
             </div>
 
             <div class='title-date'>

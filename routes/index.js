@@ -1,6 +1,5 @@
 var express = require('express')
 var router = express.Router()
-const settings = require('../settings')
 const Tool = require('../tool')
 var session = require('express-session')
 const MongoStore = require('connect-mongo')
@@ -17,6 +16,7 @@ router.use(session({
 
 
 router.get('/', async function(req, res, next) {
+    const settings = require('../settings')
     const tool = new Tool()
     const date = tool.getKhDate(new Date())
     settings.date = date
@@ -28,6 +28,7 @@ router.get('/', async function(req, res, next) {
 });
 
 router.get('/post/:id', async function(req, res, next){
+    const settings = require('../settings')
     const read = require('../controllers/posts/read')
     settings.post = await read(false, req.params.id)
     settings.user = await req.session.user
