@@ -1,6 +1,5 @@
 var express = require('express')
 var router = express.Router()
-const Tool = require('../tool')
 var session = require('express-session')
 const MongoStore = require('connect-mongo')
 require('dotenv').config()
@@ -17,9 +16,6 @@ router.use(session({
 
 router.get('/', async function(req, res, next) {
     const settings = require('../settings')
-    const tool = new Tool()
-    const date = tool.getKhDate(new Date())
-    settings.date = date
 
     const read = require('../controllers/posts/read')
     settings.posts = await read(settings.indexPostLimit)
