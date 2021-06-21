@@ -27,9 +27,15 @@
                 </script>
             <% } %>
 
-            <div class='text'>
+            <% if(post.content !== ''){ %>
+                <div class='text'>
+            <% }else{ %>
+                <div class='_text'>
+            <% } %>
                 <%- post.content %>
-            </div>
+                </div>
+
+
 
             <div id="disqus_thread"></div>
             <script>

@@ -47,13 +47,13 @@
 }
 
 .Single .wrapper .content .text{
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .Single .wrapper .content .playlist{
     background: var(--menu);
     border-top: 1px solid lightgrey;
-    max-height: 345px;
+    max-height: 346px;
     overflow: auto;
 }
 
@@ -73,10 +73,6 @@
 
 .Single .wrapper .content .active{
     background: #0a1b11;
-}
-
-.Single .wrapper .content .episode:last-child{
-    
 }
 
 .Single .wrapper .content .episode img{
