@@ -1,13 +1,14 @@
 const express = require('express')
 const fileUpload = require('express-fileupload')
 var router = express.Router()
-var settings = require('../../settings')
 
 
 
 router.use(fileUpload())
 
 router.get('/', async function(req, res){
+    var settings = await require('../../settings')
+
     settings.dLogo = 'ទំព័រ​ Upload'
     settings.message = ''
 
@@ -19,6 +20,8 @@ router.get('/', async function(req, res){
 })
 
 router.post('/', async function(req, res) {
+    var settings = await require('../../settings')
+    
     if(req.session.user){
 
         if (!req.files || Object.keys(req.files).length === 0) {

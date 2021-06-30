@@ -22,6 +22,9 @@ router.use('/upload', uploadRoute)
 const userRoute = require('./users/user')
 router.use('/user', userRoute) 
 
+const settingRoute = require('./users/setting')
+router.use('/setting', settingRoute) 
+
 
 
 module.exports = router

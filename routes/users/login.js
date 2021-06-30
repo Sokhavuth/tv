@@ -1,10 +1,10 @@
 var express = require('express')
 var router = express.Router()
-var settings = require('../../settings')
 
 
 
 router.get('/', async function(req, res, next) {
+    var settings = await require('../../settings')
     settings.dLogo = 'ទំព័រ​គ្រប់គ្រង'
     settings.message = ''
   
@@ -16,6 +16,7 @@ router.get('/', async function(req, res, next) {
 })
   
 router.post('/', async function(req, res, next){
+    var settings = await require('../../settings')
     const checkUser = require('../../controllers/users/checkUser')
     const result = await checkUser(req)
     settings.message = result.message

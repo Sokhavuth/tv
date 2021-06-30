@@ -1,10 +1,11 @@
 var express = require('express')
 var router = express.Router()
-var settings = require('../../settings')
 
 
 
 router.get('/', async function(req, res, next) {
+  var settings = await require('../../settings')
+
   if(req.session.user){
     settings.dLogo = 'ទំព័រ​ជំពូក'
 
@@ -38,6 +39,8 @@ router.post('/', async function(req, res, next){
 })
 
 router.get('/edit/:id', async function(req, res, next){
+  var settings = await require('../../settings')
+
   if(req.session.user){
     if(req.session.user.role === 'Admin'){
       settings.dLogo = 'ទំព័រ​កែប្រែ​ជំពូក'
@@ -59,6 +62,8 @@ router.get('/edit/:id', async function(req, res, next){
 })
 
 router.post('/edit/:id', async function(req, res, next){
+  var settings = await require('../../settings')
+
   if(req.session.user){
     if(req.session.user.role === 'Admin'){
       settings.dLogo = 'ទំព័រ​កែប្រែ​ជំពូក'
@@ -93,6 +98,8 @@ router.get('/delete/:id', async function(req, res, next){
 })
 
 router.post('/paginate', async function(req, res, next){
+  var settings = await require('../../settings')
+
   if(req.session.user){
     const read = await require('../../controllers/categories/read')
     const categories = await read(settings.dItemLimit, false, req.body.page)

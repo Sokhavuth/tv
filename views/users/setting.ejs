@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/users/setting.css" rel="stylesheet"></link>
+  
+
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <div class='content'>
+        <form action='/users/setting' method='post'>
+            <span>ចំណង​ជើង​គេហទំព័រៈ </span><input type='text' name='siteTitle' value="<%- siteTitle %>" required />
+            <span>ចំនួន​ការផ្សាយ​ផ្នែក​ខាង​ក្រោយៈ </span><input type='text' name='dItemLimit' value="<%- dItemLimit %>" required />
+            <span>ចំនួន​ការផ្សាយ​ផ្នែក​ខាង​មុខៈ </span><input type='text' name='indexPostLimit' value="<%- indexPostLimit %>" required />
+            <span>ចំនួន​ជំពូក​ផ្នែក​ខាង​មុខៈ </span><input type='text' name='categoryPostLimit' value="<%- categoryPostLimit %>" required />
+            <span></span><input type='submit' value='បញ្ជូន' />
+        </form>
+    </div>
+</section>
+    
+<%- include('partials/footer.ejs') %>

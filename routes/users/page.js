@@ -1,10 +1,11 @@
 var express = require('express')
 var router = express.Router()
-var settings = require('../../settings')
 
 
 
 router.get('/', async function(req, res, next) {
+    var settings = await require('../../settings')
+
     settings.dLogo = 'ទំព័រ​ស្តាទិក'
   
     if(req.session.user){
@@ -39,6 +40,8 @@ router.post('/', async function(req, res, next) {
 })
 
 router.get('/edit/:id', async function(req, res, next) {
+    var settings = await require('../../settings')
+
     if(req.session.user){
         if(req.session.user.role === 'Admin'){
             settings.dLogo = 'កែប្រែ​ទំព័រ​ស្តាទិក'
@@ -83,6 +86,8 @@ router.get('/delete/:id', async function(req, res, next){
 })
 
 router.post('/paginate', async function(req, res, next){
+    var settings = await require('../../settings')
+    
     if(req.session.user){
         const read = await require('../../controllers/pages/read')
 

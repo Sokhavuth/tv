@@ -1,0 +1,15 @@
+.Main .content form{
+    display: grid;
+    grid-template-columns: 20% 50%;
+    grid-gap: 5px;
+    align-items: center;
+}
+
+.Main .content form span{
+    text-align: right;
+}
+
+.Main .content form input{
+    font: var(--body-font);
+    padding: 1px 10px;
+}

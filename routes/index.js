@@ -15,16 +15,15 @@ router.use(session({
 
 
 router.get('/', async function(req, res, next) {
-    const settings = require('../settings')
-
-    const read = require('../controllers/posts/read')
+    const settings = await require('../settings')
+    const read = await require('../controllers/posts/read')
     settings.posts = await read(settings.indexPostLimit)
 
     res.render('index', settings)
 });
 
 router.get('/post/:id', async function(req, res, next){
-    const settings = require('../settings')
+    const settings = await require('../settings')
     const read = require('../controllers/posts/read')
     settings.post = await read(false, req.params.id)
     settings.user = await req.session.user
