@@ -17,6 +17,8 @@ async function setSchema(){
         author: {type: String, required: true},
     })
 
+    bookSchema.index({ title: 'text', content: 'text' })
+
     mongoose.models = {}
     const book = mongoose.model('books', bookSchema)
 

@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
+
+
 const loginRoute = require('./users/login')
 router.use('/', loginRoute) 
 
@@ -24,6 +26,9 @@ router.use('/user', userRoute)
 
 const settingRoute = require('./users/setting')
 router.use('/setting', settingRoute) 
+
+const searchRoute = require('./users/search')
+router.use('/search', searchRoute) 
 
 
 

@@ -17,6 +17,8 @@ async function setSchema(){
         author: {type: String, required: true},
     })
 
+    postSchema.index({ title: 'text', content: 'text' })
+
     mongoose.models = {}
     const post = mongoose.model('posts', postSchema)
 

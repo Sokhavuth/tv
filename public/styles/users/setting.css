@@ -1,6 +1,6 @@
 .Main .content form{
     display: grid;
-    grid-template-columns: 20% 50%;
+    grid-template-columns: 21% 50%;
     grid-gap: 5px;
     align-items: center;
 }

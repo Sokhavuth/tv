@@ -1,14 +1,24 @@
 <%- include('partials/header.ejs') %>
 <link href="/styles/index.css" rel="stylesheet"></link>
-  
+
 <section class='Main region'>
     <div class='sidebar'>
         <%- include('partials/menu.ejs') %>
     </div>
 
     <div class='content'>
-        Content
+        <%- include('partials/listing.ejs') %>
     </div>
 </section>
+
+<style>
+    .List{
+        margin-top: 0;
+    }
+
+    .List .item .edit-delete img{
+        width: 25px;
+    }
+</style>
     
 <%- include('partials/footer.ejs') %>

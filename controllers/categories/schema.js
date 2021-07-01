@@ -11,6 +11,8 @@ module.exports = async () => {
         date: {type: Date, required: true}
     })
 
+    categorySchema.index({ title: 'text' })
+
     mongoose.models = {}
     const categories = mongoose.model('categories', categorySchema)
 

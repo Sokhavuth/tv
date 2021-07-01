@@ -26,10 +26,10 @@ function appendItem(items, route){
         }else{
             html += `<img src='/images/userthumb.png' />`
         }
-        html += `</a>`
         if((items[v].video) && (items[v].video !== '')){
             html += `<img class='play-icon' src='/images/play.png' />`
         }
+        html += `</a>`
         html += `</div>`
 
         html += `<div class='title-date'>`

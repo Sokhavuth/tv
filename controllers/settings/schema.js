@@ -8,6 +8,7 @@ async function setSchema(){
 
     const settingSchema = new mongoose.Schema({
         siteTitle: {type: String, required: true},
+        description: {type: String, required: true},
         dItemLimit: {type: Number, required: true},
         indexPostLimit: {type: Number, required: true},
         categoryPostLimit: {type: Number, required: true}

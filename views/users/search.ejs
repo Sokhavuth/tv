@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+<link href="/styles/index.css" rel="stylesheet"></link>
+
+<section class='Main region'>
+    <div class='sidebar'>
+        <%- include('partials/menu.ejs') %>
+    </div>
+
+    <div class='content'>
+        <% for(let v in results) { %>
+            <% if(results[v].title) { %>
+                <div class='title'><a href='/<%- route %>/<%- results[v].id %>'><%- results[v].title %></a></div>
+            <% }else{ %>
+                <div class='title'><%- results[v].username %></div>
+            <% } %>
+        <% } %>
+    </div>
+</section>
+    
+<%- include('partials/footer.ejs') %>

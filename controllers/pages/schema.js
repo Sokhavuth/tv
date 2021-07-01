@@ -16,6 +16,8 @@ async function setSchema(){
         author: {type: String, required: true}
     })
 
+    pageSchema.index({ title: 'text', content: 'text' })
+
     mongoose.models = {}
     const page = mongoose.model('pages', pageSchema)
 

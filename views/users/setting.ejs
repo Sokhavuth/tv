@@ -10,9 +10,10 @@
     <div class='content'>
         <form action='/users/setting' method='post'>
             <span>ចំណង​ជើង​គេហទំព័រៈ </span><input type='text' name='siteTitle' value="<%- siteTitle %>" required />
+            <span>ចំណងជើង​គេហទំព័រ​តូចៈ </span><input type='text' name='description' value="<%- description %>" required />
             <span>ចំនួន​ការផ្សាយ​ផ្នែក​ខាង​ក្រោយៈ </span><input type='text' name='dItemLimit' value="<%- dItemLimit %>" required />
             <span>ចំនួន​ការផ្សាយ​ផ្នែក​ខាង​មុខៈ </span><input type='text' name='indexPostLimit' value="<%- indexPostLimit %>" required />
-            <span>ចំនួន​ជំពូក​ផ្នែក​ខាង​មុខៈ </span><input type='text' name='categoryPostLimit' value="<%- categoryPostLimit %>" required />
+            <span>ចំនួន​ការផ្សាយក្នុង​ជំពូក​និមួយ​ៗ: </span><input type='text' name='categoryPostLimit' value="<%- categoryPostLimit %>" required />
             <span></span><input type='submit' value='បញ្ជូន' />
         </form>
     </div>
