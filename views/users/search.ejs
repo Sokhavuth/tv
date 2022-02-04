@@ -1,19 +1,28 @@
 <%- include('partials/header.ejs') %>
 <link href="/styles/index.css" rel="stylesheet"></link>
 
+<style>
+.content ul li{
+    font-size: 18px;
+    list-style-position: inside;
+}
+</style>
+
 <section class='Main region'>
     <div class='sidebar'>
         <%- include('partials/menu.ejs') %>
     </div>
 
     <div class='content'>
+        <ul>
         <% for(let v in results) { %>
             <% if(results[v].title) { %>
-                <div class='title'><a href='/<%- route %>/<%- results[v].id %>'><%- results[v].title %></a></div>
+                <li class='title'><a href='/<%- route %>/<%- results[v].id %>'><%- results[v].title %></a></li>
             <% }else{ %>
-                <div class='title'><%- results[v].username %></div>
+                <li class='title'><a href='/<%- route %>/<%- results[v].userid %>'><%- results[v].username %></a></li>
             <% } %>
         <% } %>
+    </ul>
     </div>
 </section>
     
